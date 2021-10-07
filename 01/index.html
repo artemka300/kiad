@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vue Basics</title>
+    <link rel="stylesheet" href="theme.css"/>
+</head>
+<body>
+<div class="container " id="app">
+    <div class="card">
+        <h1>{{ title }}</h1>
+        <div class="form-control">
+            <input type="text" v-bind:placeholder="puk"
+                   v-model="intp" @keypress.enter="addotn"
+
+            />
+            <textarea v-model="intparr"> </textarea>
+        </div>
+        <button class="btn" @click="addotn()">Добавить</button>
+        <button class="btn" @click="delall()">Удалить все</button>
+        <h3>Закладок:{{tir.length}}</h3>
+        <hr/>
+        <ul class="list">
+            <li class="list-item"  v-bind:id="i+'gfgf'" v-for="(item,i) in tir"   >
+                <h3>{{item.name}}</h3>
+                <div class="listitem">
+                    <p>{{item.text}}</p>
+                </div>
+                <h6>Количесво символов:{{item.text.length}}</h6>
+                <button class="btn" @click="del(i)" > удалить</button>
+                <button class="btn" v-if="!item.texttruu" @click="red(i)" > редоктировать</button>
+                <button class="btn" v-if="item.texttruu" @click="sev(i)" > Захоронить</button>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+
+
+<script src="js/vue.global.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
